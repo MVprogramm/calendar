@@ -1,0 +1,10 @@
+$gridColor: #dadce0;
+$todayColor: #1a73e8;
+$textGrey: #3c4043;
+
+$headerHeight: 183px;
+$timeScaleWidth: 65px;
+$dayHeight: 60px;
+
+$weekHeight: calc(100vh - $headerHeight);
+$weekWidth: calc(100vw - $timeScaleWidth);

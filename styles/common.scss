@@ -1,0 +1,119 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+
+  border-bottom: 1px solid $gridColor;
+
+  padding: 8px 30px 8px 30px;
+
+  &__scale {
+    height: 126px;
+    width: 10px;
+
+    border-bottom: 1px solid $gridColor;
+  }
+
+  &__gmt {
+    min-width: 55px;
+
+    font-size: 10px;
+    color: #70757a;
+
+    text-align: center;
+    padding-top: 112px;
+  }
+}
+
+.button {
+  display: flex;
+
+  height: 40px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.icon-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  height: 32px;
+  width: 32px;
+
+  font-size: 14px;
+
+  &:hover > div {
+    opacity: 1;
+  }
+
+  &__circle {
+    position: absolute;
+
+    top: 10px;
+
+    height: 32px;
+    width: 32px;
+
+    background-color: #f1f3f4;
+
+    border-radius: 50%;
+
+    opacity: 0;
+    z-index: -1;
+
+    &-left {
+      left: 295px;
+    }
+
+    &-right {
+      left: 325px;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #cccccc45;
+  z-index: 10;
+}
+
+.popup {
+  &__content {
+    position: absolute;
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+}
+
+.hidden {
+  display: none;
+}

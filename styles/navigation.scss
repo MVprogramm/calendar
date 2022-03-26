@@ -1,0 +1,30 @@
+/* стили навигации */
+.navigation {
+  display: flex;
+  align-items: center;
+  &__today-btn {
+    cursor: pointer;
+
+    background-color: transparent;
+    border: 1px solid $gridColor;
+    border-radius: 4px;
+
+    padding: 0 16px;
+    margin-right: 30px;
+
+    &:hover {
+      background-color: #f1f3f4;
+    }
+  }
+
+  &__displayed-month {
+    display: block;
+
+    margin-left: 8px;
+    margin-right: 2px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
