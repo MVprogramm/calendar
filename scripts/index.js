@@ -1,5 +1,5 @@
 import { renderTimescale } from "./calendar/timescale.js";
-import { renderWeek, renderClockLine } from "./calendar/calendar.js";
+import { renderWeek } from "./calendar/calendar.js";
 import { renderHeader } from "./calendar/header.js";
 import { initNavigation } from "./header/navigation.js";
 import { setItem, getItem } from "./common/storage.js";
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const theDay = getItem("displayedWeekStart");
   renderTimescale();
   renderWeek(theDay.getDate());
-  renderClockLine();
-  setInterval(renderClockLine, 60000);
+
+  setInterval(renderWeek, 60000, theDay.getDate());
   initNavigation();
   // initEventForm();
 

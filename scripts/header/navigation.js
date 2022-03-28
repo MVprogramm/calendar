@@ -1,5 +1,5 @@
 import { getItem, setItem } from "../common/storage.js";
-import { renderWeek, renderClockLine } from "../calendar/calendar.js";
+import { renderWeek } from "../calendar/calendar.js";
 import { renderHeader } from "../calendar/header.js";
 import { getStartOfWeek, getDisplayedMonth } from "../common/time.utils.js";
 
@@ -35,7 +35,7 @@ const onChangeWeek = (event) => {
   renderCurrentMonth();
 
   renderWeek(getItem("displayedWeekStart").getDate());
-  renderClockLine();
+
   event.stopImmediatePropagation();
 };
 
@@ -46,7 +46,7 @@ const onToday = (event) => {
   renderCurrentMonth();
 
   renderWeek(getItem("displayedWeekStart").getDate());
-  renderClockLine();
+
   event.stopImmediatePropagation();
 };
 
