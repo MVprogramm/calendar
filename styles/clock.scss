@@ -1,0 +1,23 @@
+.clock {
+  background-color: #ff0000;
+
+  &__circle {
+    height: 12px;
+    width: 12px;
+
+    border-radius: 50%;
+  }
+
+  &__line {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    left: -5px;
+
+    height: 2px;
+    width: 102%;
+
+    z-index: 100;
+  }
+}

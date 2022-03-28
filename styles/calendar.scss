@@ -161,5 +161,7 @@
 
     border-left: 1px solid $gridColor;
     border-bottom: 1px solid $gridColor;
+
+    z-index: -1;
   }
 }

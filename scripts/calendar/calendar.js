@@ -18,7 +18,18 @@ export const renderWeek = (startDay) => {
     week += `<div class="calendar__time-slot" data-time="${i}">`;
 
     for (let y = 0; y < 7; y++) {
-      week += `<div class="calendar__day" data-day="${days[y]}"></div>`;
+      week += `<div class="calendar__day" data-day="${days[y]}" data-clock="${
+        new Date(
+          getItem("displayedWeekStart").getFullYear(),
+          getItem("displayedWeekStart").getMonth(),
+          days[y]
+        ).getTime() ===
+        new Date(
+          new Date().getFullYear(),
+          new Date().getMonth(),
+          new Date().getDate()
+        ).getTime()
+      }"></div>`;
     }
 
     week += `</div>`;
@@ -31,4 +42,25 @@ export const renderWeek = (startDay) => {
   // массив дней, которые нужно отобразить, считаем ф-цией generateWeekRange на основе displayedWeekStart из storage
   // каждый день должен содержать в дата атрибуте порядковый номер дня в месяце
   // после того, как отрисовали всю сетку для отображаемой недели, нужно отобразить события этой недели с помощью renderEvents
+};
+
+export const renderClockLine = () => {
+  const dayStart = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate()
+  ).getTime();
+  const dayTime = new Date().getTime();
+
+  const topLine = Math.round((dayTime - dayStart) / 60000);
+
+  const clockLine = `<div class="clock clock__line" style="top:${topLine}px">
+                      <div class="clock clock__circle"></div>
+                    </div>`;
+
+  const clockToday = document.querySelector(
+    '.calendar__day[data-clock="true"]'
+  );
+
+  clockToday.innerHTML += clockLine;
 };
