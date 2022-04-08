@@ -17,8 +17,13 @@ export const generateWeekRange = (startDate) => {
   const result = [];
   for (let i = 0; i < 7; i += 1) {
     const base = new Date(startDate);
-    result.push(new Date(base.setDate(base.getDate() + i)).getDate());
+    result.push([
+      new Date(base.setDate(base.getDate() + i)).getDate(),
+      new Date(base.setDate(base.getDate() + i)).getMonth(),
+      new Date(base.setDate(base.getDate() + i)).getFullYear(),
+    ]);
   }
+
   return result;
 };
 

@@ -1,7 +1,12 @@
 import { getItem } from "../common/storage.js";
 import { getStartOfWeek } from "../common/time.utils.js";
 import { generateWeekRange } from "../common/time.utils.js";
-// import { openModal } from "../common/modal.js";
+import { openModal } from "../common/modal.js";
+import {
+  appendDate,
+  appendStartTime,
+  appendEndTime,
+} from "../events/createEvent.js";
 
 export const renderHeader = () => {
   const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
@@ -18,9 +23,9 @@ export const renderHeader = () => {
   for (let day of daysOfWeek) {
     header_layout += `<div data-today="${
       new Date(
-        getItem("displayedWeekStart").getFullYear(),
-        getItem("displayedWeekStart").getMonth(),
-        currentWeek[counter]
+        currentWeek[counter][2],
+        currentWeek[counter][1],
+        currentWeek[counter][0]
       ).getTime() ===
       new Date(
         new Date().getFullYear(),
@@ -29,7 +34,7 @@ export const renderHeader = () => {
       ).getTime()
     }" class="calendar__day-label day-label">
       <span class="day-label__day-name">${day}</span>
-      <span class="day-label__day-number">${currentWeek[counter]}</span>
+      <span class="day-label__day-number">${currentWeek[counter][0]}</span>
       <div class="day-label__day-circle"></div>
       <div class="day-label__day-cell"></div>
     </div>`;
@@ -47,3 +52,19 @@ export const renderHeader = () => {
 
 // при клике на кнопку "Create" открыть модальное окно с формой для создания события
 // назначьте здесь обработчик
+const openModalWindow = () => {
+  const calendarElem = document.querySelector(".calendar__week-container");
+  const modalElem = document.querySelector(".modal");
+  const modalTop = Math.floor(
+    (calendarElem.clientHeight - modalElem.clientHeight) / 3
+  );
+  modalElem.style.marginTop = modalTop + "px";
+
+  openModal();
+
+  appendDate(new Date());
+  appendStartTime(new Date());
+  appendEndTime(new Date(new Date().getTime() + 15 * 60 * 1000));
+};
+const createEventElem = document.querySelector(".create-event-btn");
+createEventElem.addEventListener("click", openModalWindow);

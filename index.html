@@ -65,28 +65,54 @@
         </div>
       </div>
     </section>
-    <div class="modal hidden overlay">
+    <div class="modal hidden" style="margin-top: 200px">
       <div class="modal__content">
         <div class="create-event">
-          <button class="create-event__close-btn">+</button>
+          <button class="create-event__close-btn">
+            <img
+              class="create-event__img"
+              src="https://img.icons8.com/material-outlined/18/5f6368/delete-sign.png"
+            />
+          </button>
           <form class="event-form">
             <input
               type="text"
               name="title"
               placeholder="Title"
-              class="event-form__field"
+              class="event-form__field event-form__field_title"
             />
+            <div class="event-form__shield event-form__shield_title"></div>
+
             <div class="event-form__time">
-              <input type="date" name="date" class="event-form__field" />
-              <input type="time" name="startTime" class="event-form__field" />
-              <span>-</span>
-              <input type="time" name="endTime" class="event-form__field" />
+              <i class="far fa-clock"></i>
+
+              <label class="event-form__field event-form__field_date">
+                <input type="date" id="date" name="date" />
+                <span id="eventDay"></span>
+              </label>
+
+              <label class="event-form__field_start-time">
+                <input type="time" id="startTime" name="startTime" />
+                <span id="eventStartTime"></span>
+              </label>
+
+              <span class="event-form__field_interval">-</span>
+
+              <label class="event-form__field event-form__field_end-time">
+                <input type="time" id="endTime" name="endTime" />
+                <span id="eventEndTime"></span>
+              </label>
             </div>
+
+            <i class="fas fa-align-left"></i>
             <textarea
               name="description"
               placeholder="Description"
-              class="event-form__field"
+              class="event-form__field event-form__field_description"
             ></textarea>
+            <div
+              class="event-form__shield event-form__shield_description"
+            ></div>
             <button type="submit" class="event-form__submit-btn">Create</button>
           </form>
         </div>
